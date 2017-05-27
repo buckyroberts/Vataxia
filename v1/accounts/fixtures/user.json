@@ -1,0 +1,19 @@
+[
+	{
+		"model": "accounts.user",
+		"pk": 1,
+		"fields": {
+			"password": "pbkdf2_sha256$36000$w0Tex7ivzfrw$A03bK2d+39439anPQfPnoBqJw/LwHRpLWaf/+smW/Gk=",
+			"last_login": "2017-05-27T01:45:14.617Z",
+			"is_superuser": true,
+			"date_joined": "2017-05-27T01:44:39.952Z",
+			"email": "admin@email.com",
+			"first_name": "",
+			"last_name": "",
+			"is_active": true,
+			"is_staff": true,
+			"groups": [],
+			"user_permissions": []
+		}
+	}
+]
