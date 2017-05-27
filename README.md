@@ -1,3 +1,1 @@
-## Vataxia
-
-Open source social network engine
+![](http://i.imgur.com/Da1hAJS.png)
