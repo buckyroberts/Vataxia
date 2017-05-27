@@ -1,0 +1,10 @@
+# Base
+*.sqlite3
+.DS_Store
+.idea
+__pycache__
+node_modules
+
+# Migrations
+**/migrations/*
+!**/migrations/__init__.py
