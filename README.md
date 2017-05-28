@@ -25,3 +25,26 @@ This will create an initial superuser account with the following credentials:
 admin@email.com
 pass1234
 ```
+
+## Authentication
+
+To login, send a POST request to `/login` with the data:
+* email
+* password
+
+On success, user information and API token will be returned:
+```json
+{
+  "id": 1,
+  "email": "admin@email.com",
+  "first_name": "Bucky",
+  "last_name": "Roberts",
+  "token": "753da61b4c39bd195782710c82fe3c3b1e7f7428"
+}
+```
+
+All subsequent API requests must include this token in the HTTP header for user identification.
+Header key will be `Authorization` with value of 'Token' followed by a single space and then token string:
+```
+Authorization: Token 753da61b4c39bd195782710c82fe3c3b1e7f7428
+```
