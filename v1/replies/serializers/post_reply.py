@@ -9,3 +9,15 @@ class PostReplySerializer(serializers.ModelSerializer):
     class Meta:
         model = PostReply
         fields = '__all__'
+
+
+class PostReplySerializerCreate(serializers.ModelSerializer):
+
+    class Meta:
+        model = PostReply
+        fields = '__all__'
+
+    def validate_user(self, user):
+        if user != self.context['request'].user:
+            raise serializers.ValidationError('You can not create post replies for other users')
+        return user
