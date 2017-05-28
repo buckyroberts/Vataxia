@@ -20,6 +20,11 @@ To load in sample data for all tables at once:
 bash scripts/load_sample_data.sh
 ```
 
+For Windows users:
+```
+python manage.py loaddata v1\accounts\fixtures\user.json
+```
+
 This will create an initial superuser account with the following credentials:
 ```
 admin@email.com
