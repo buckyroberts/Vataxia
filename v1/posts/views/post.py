@@ -46,3 +46,15 @@ class PostDetail(APIView):
             serializer.save()
             return Response(PostSerializer(serializer.instance).data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    @staticmethod
+    def delete(request, post_id):
+        """
+        Delete post
+        """
+
+        post = get_object_or_404(Post, pk=post_id)
+        if post.user != request.user:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+        post.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
