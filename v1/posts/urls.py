@@ -4,7 +4,7 @@ from .views.post import PostView
 
 urlpatterns = [
 
-    # Users
+    # Posts
     url(r'^posts$', PostView.as_view()),
 
 ]

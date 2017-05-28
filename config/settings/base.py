@@ -9,6 +9,7 @@ INSTALLED_APPS = [
     # API (v1)
     'v1.accounts.apps.AccountsConfig',
     'v1.posts.apps.PostsConfig',
+    'v1.private_messages.apps.PrivateMessagesConfig',
 
     # Base
     'django.contrib.admin',
