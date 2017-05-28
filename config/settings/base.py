@@ -8,6 +8,7 @@ INSTALLED_APPS = [
 
     # API (v1)
     'v1.accounts.apps.AccountsConfig',
+    'v1.posts.apps.PostsConfig',
 
     # Base
     'django.contrib.admin',
