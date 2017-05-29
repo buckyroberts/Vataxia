@@ -7,15 +7,15 @@ from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
 
-    # Core
-    url(r'^admin/', admin.site.urls),
-    url(r'^docs/', include_docs_urls(title='Vataxia')),
-
     # API (v1)
     url(r'^', include('v1.accounts.urls')),
     url(r'^', include('v1.posts.urls')),
     url(r'^', include('v1.private_messages.urls')),
     url(r'^', include('v1.replies.urls')),
+
+    # Core
+    url(r'^admin/', admin.site.urls),
+    url(r'^', include_docs_urls(title='Vataxia')),
 
 ]
 
