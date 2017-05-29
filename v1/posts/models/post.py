@@ -7,5 +7,8 @@ class Post(CreatedModified):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     body = models.TextField()
 
+    class Meta:
+        default_related_name = 'posts'
+
     def __str__(self):
         return self.body
