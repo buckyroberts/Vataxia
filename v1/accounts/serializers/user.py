@@ -1,12 +1,14 @@
 from rest_framework import serializers
 from v1.accounts.models.user import User
+from .profile import ProfileSerializer
 
 
 class UserSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer(read_only=True)
 
     class Meta:
         model = User
-        fields = ('id', 'email', 'first_name', 'last_name')
+        fields = ('id', 'email', 'first_name', 'last_name', 'profile')
 
 
 class UserSerializerCreate(UserSerializer):
