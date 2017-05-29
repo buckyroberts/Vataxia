@@ -8,5 +8,8 @@ class PrivateMessage(CreatedModified):
     receiver = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='receiver')
     body = models.TextField()
 
+    class Meta:
+        default_related_name = 'private_messages'
+
     def __str__(self):
         return self.body
