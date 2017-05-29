@@ -1,4 +1,4 @@
-![](http://i.imgur.com/Da1hAJS.png)
+![](http://i.imgur.com/8j1esSj.png)
 
 ## Project Setup
 
