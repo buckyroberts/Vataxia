@@ -20,6 +20,10 @@ class PostSerializerCreate(serializers.ModelSerializer):
         fields = '__all__'
 
     def validate_user(self, user):
+        """
+        Validate authenticated user 
+        """
+
         if user != self.context['request'].user:
             raise serializers.ValidationError('You can not create posts for other users')
         return user
@@ -32,6 +36,19 @@ class PostSerializerUpdate(serializers.ModelSerializer):
         fields = '__all__'
 
     def validate(self, data):
+        """
+        Validate authenticated user 
+        """
+
         if self.instance.user != self.context['request'].user:
             raise serializers.ValidationError('You can not edit posts from other users')
         return data
+
+    def validate_user(self, user):
+        """
+        User can not be changed
+        """
+
+        if user != self.instance.user:
+            raise serializers.ValidationError('User is not editable')
+        return user
