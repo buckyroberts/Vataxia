@@ -5,4 +5,4 @@ djangorestframework==3.6.3
 Markdown==2.6.8
 Pillow==4.1.1
 Pygments==2.2.0
-uwsgi==2.0.13.1
+uWSGI==2.0.15
