@@ -1,0 +1,15 @@
+dependencies:
+  pre:
+    - sudo add-apt-repository ppa:jonathonf/python-3.6
+    - sudo apt update
+    - sudo apt upgrade
+    - sudo apt install build-essential python3.6 python3.6-dev
+    - wget https://bootstrap.pypa.io/get-pip.py
+    - sudo python3.6 get-pip.py
+    - sudo ln -s /usr/bin/python3.6 /usr/local/bin/python
+    - sudo pip install -r requirements/local.txt
+    - python manage.py makemigrations
+    - python manage.py migrate
+machine:
+  python:
+    version: 3.6.0
