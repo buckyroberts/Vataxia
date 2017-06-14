@@ -25,7 +25,7 @@ def get_issue(data):
 def handle_value_needed(issue):
     items = [
         {'model': 'profile', 'field': 'age', 'answer': '26'},
-        {'model': 'profile', 'field': 'city', 'answer': '"Pasadena"'}
+        {'model': 'profile', 'field': 'city', 'answer': "\'Pasadena\'"}
     ]
     if issue.get('type') == 'value_needed':
         for item in items:
@@ -37,7 +37,6 @@ def handle_value_needed(issue):
 def resolve_issues():
     with open(OUTPUT_FILE, 'rt') as f:
         data = f.read()
-        print(data)
         issue = get_issue(data)
         handle_value_needed(issue)
 

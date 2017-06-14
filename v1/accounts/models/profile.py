@@ -3,7 +3,6 @@ from django.db import models
 
 
 class Profile(models.Model):
-    city = models.CharField(max_length=100)
     image = models.ImageField(blank=True)
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
 
