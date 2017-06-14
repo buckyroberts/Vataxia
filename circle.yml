@@ -1,6 +1,7 @@
 dependencies:
   pre:
     - sudo add-apt-repository -y ppa:jonathonf/python-3.6
+    - sudo apt -y update
     - sudo apt -y install build-essential python3.6 python3.6-dev
     - wget https://bootstrap.pypa.io/get-pip.py
     - sudo python3.6 get-pip.py
