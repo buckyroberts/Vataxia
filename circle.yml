@@ -1,6 +1,6 @@
 dependencies:
   pre:
-    - sudo add-apt-repository ppa:jonathonf/python-3.6
+    - sudo add-apt-repository -y ppa:jonathonf/python-3.6
     - sudo apt update
     - sudo apt upgrade
     - sudo apt install build-essential python3.6 python3.6-dev
