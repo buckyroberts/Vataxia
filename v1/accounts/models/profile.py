@@ -3,8 +3,9 @@ from django.db import models
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL)
+    city = models.CharField(max_length=100)
     image = models.ImageField(blank=True)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL)
 
     def __str__(self):
         return self.user.email
