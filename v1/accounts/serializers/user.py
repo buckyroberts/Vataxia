@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
     @staticmethod
     def get_profile(user):
         """
-        Get or create profile 
+        Get or create profile
         """
 
         profile, created = Profile.objects.get_or_create(user=user)
