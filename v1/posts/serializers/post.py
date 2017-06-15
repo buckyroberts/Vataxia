@@ -33,7 +33,7 @@ class PostSerializerUpdate(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ('body',)
+        exclude = ('user',)
 
     def validate(self, data):
         """
