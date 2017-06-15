@@ -33,7 +33,7 @@ class PostSerializerUpdate(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = ('body',)
 
     def validate(self, data):
         """
@@ -43,12 +43,3 @@ class PostSerializerUpdate(serializers.ModelSerializer):
         if self.instance.user != self.context['request'].user:
             raise serializers.ValidationError('You can not edit posts from other users')
         return data
-
-    def validate_user(self, user):
-        """
-        User can not be changed
-        """
-
-        if user != self.instance.user:
-            raise serializers.ValidationError('User is not editable')
-        return user
