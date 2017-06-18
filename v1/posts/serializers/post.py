@@ -2,10 +2,12 @@ from rest_framework import serializers
 from v1.accounts.serializers.user import UserSerializer
 from v1.posts.models.post import Post
 from v1.replies.serializers.post_reply import PostReplySerializer
+from v1.votes.serializers.post_vote import PostVoteSerializer
 
 
 class PostSerializer(serializers.ModelSerializer):
     post_replies = PostReplySerializer(many=True, read_only=True)
+    post_votes = PostVoteSerializer(many=True, read_only=True)
     user = UserSerializer()
 
     class Meta:
