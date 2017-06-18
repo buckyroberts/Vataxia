@@ -22,6 +22,19 @@ class UserSerializer(serializers.ModelSerializer):
         return ProfileSerializer(profile, read_only=True).data
 
 
+class UserSerializerCreate(UserSerializer):
+
+    @staticmethod
+    def validate_email(value):
+        """
+        Check the email is unique
+        """
+
+        if User.objects.filter(email=value):
+            raise serializers.ValidationError('Email already exists')
+        return value
+
+
 class UserSerializerLogin(UserSerializer):
     token = serializers.SerializerMethodField()
 
@@ -37,16 +50,3 @@ class UserSerializerLogin(UserSerializer):
     class Meta:
         model = User
         fields = ('id', 'email', 'first_name', 'last_name', 'profile', 'token')
-
-
-class UserSerializerCreate(UserSerializer):
-
-    @staticmethod
-    def validate_email(value):
-        """
-        Check the email is unique
-        """
-
-        if User.objects.filter(email=value):
-            raise serializers.ValidationError('Email already exists')
-        return value
