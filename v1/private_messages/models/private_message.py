@@ -4,8 +4,8 @@ from v1.general.created_modified import CreatedModified
 
 
 class PrivateMessage(CreatedModified):
-    sender = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='sender')
-    receiver = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='receiver')
+    sender = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='sent_private_messages')
+    receiver = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='received_private_messages')
     body = models.TextField()
 
     class Meta:
