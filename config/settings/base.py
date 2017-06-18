@@ -11,6 +11,7 @@ INSTALLED_APPS = [
     'v1.posts.apps.PostsConfig',
     'v1.private_messages.apps.PrivateMessagesConfig',
     'v1.replies.apps.RepliesConfig',
+    'v1.user_roles.apps.UserRolesConfig',
 
     # Base
     'django.contrib.admin',
