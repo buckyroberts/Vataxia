@@ -1,3 +1,0 @@
-Migrations for 'accounts':
-  v1/accounts/migrations/0041_remove_profile_city.py
-    - Remove field city from profile
