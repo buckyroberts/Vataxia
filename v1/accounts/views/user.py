@@ -27,6 +27,6 @@ class UserView(APIView):
         serializer = UserSerializerCreate(data=request.data, context={'request': request})
         if serializer.is_valid():
             user = serializer.save()
-            Profile(user=user).save()
+            Profile(sponsor=request.user, user=user).save()
             return Response(UserSerializer(serializer.instance).data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
