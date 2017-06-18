@@ -37,3 +37,15 @@ class PostVoteDetail(APIView):
             serializer.save()
             return Response(PostVoteSerializer(serializer.instance).data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    @staticmethod
+    def delete(request, post_vote_id):
+        """
+        Delete post vote
+        """
+
+        post_vote = get_object_or_404(PostVote, pk=post_vote_id)
+        if post_vote.user != request.user:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+        post_vote.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
