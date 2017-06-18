@@ -1,0 +1,29 @@
+[
+  {
+    "model": "accounts.profile",
+    "pk": 1,
+    "fields": {
+      "image": "",
+      "sponsor": null,
+      "user": 1
+    }
+  },
+  {
+    "model": "accounts.profile",
+    "pk": 2,
+    "fields": {
+      "image": "",
+      "sponsor": 1,
+      "user": 2
+    }
+  },
+  {
+    "model": "accounts.profile",
+    "pk": 3,
+    "fields": {
+      "image": "",
+      "sponsor": 2,
+      "user": 3
+    }
+  }
+]
