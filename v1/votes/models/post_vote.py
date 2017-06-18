@@ -8,6 +8,7 @@ class PostVote(Vote):
 
     class Meta:
         default_related_name = 'post_votes'
+        unique_together = ('post', 'user')
 
     def __str__(self):
-        return f'id: {self.id} - value: {self.value}'
+        return f'post: {self.post.id} - value: {self.value}'
