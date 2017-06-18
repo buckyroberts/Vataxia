@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from v1.accounts.models.user import User
-from v1.accounts.serializers.login import LoginSerializer
+from v1.accounts.serializers.user import UserSerializerLogin
 
 
 # login
@@ -21,6 +21,6 @@ class LoginView(APIView):
         user = get_object_or_404(User, email=request.data.get('email'))
         user = authenticate(username=user.email, password=request.data.get('password'))
         if user:
-            serializer = LoginSerializer(user)
+            serializer = UserSerializerLogin(user)
             return Response(serializer.data)
         return Response(status=status.HTTP_400_BAD_REQUEST)
