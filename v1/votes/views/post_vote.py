@@ -24,7 +24,7 @@ class PostVoteView(APIView):
 
 # post_votes/{post_vote_id}
 class PostVoteDetail(APIView):
-    
+
     @staticmethod
     def patch(request, post_vote_id):
         """

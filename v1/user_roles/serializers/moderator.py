@@ -23,7 +23,7 @@ class ModeratorSerializerCreate(serializers.ModelSerializer):
 
     def validate(self, data):
         """
-        Moderator permissions needed 
+        Moderator permissions needed
         """
 
         if not is_moderator(self.context['request'].user):
@@ -32,7 +32,7 @@ class ModeratorSerializerCreate(serializers.ModelSerializer):
 
     def validate_user(self, user):
         """
-        Ensure user is not already moderator or higher 
+        Ensure user is not already moderator or higher
         """
 
         if is_moderator(user):

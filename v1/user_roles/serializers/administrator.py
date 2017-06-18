@@ -21,7 +21,7 @@ class AdministratorSerializerCreate(serializers.ModelSerializer):
 
     def validate(self, data):
         """
-        Administrator permissions needed 
+        Administrator permissions needed
         """
 
         if not is_administrator(self.context['request'].user):
