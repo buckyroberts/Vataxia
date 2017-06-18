@@ -6,6 +6,7 @@ from v1.utils.permissions import is_moderator
 
 
 class ModeratorSerializer(serializers.ModelSerializer):
+    sponsor = UserSerializer()
     user = UserSerializer()
 
     class Meta:
@@ -14,6 +15,7 @@ class ModeratorSerializer(serializers.ModelSerializer):
 
 
 class ModeratorSerializerCreate(serializers.ModelSerializer):
+    sponsor = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Moderator
