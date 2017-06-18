@@ -21,7 +21,7 @@ class PostVoteSerializerUpdate(serializers.ModelSerializer):
 
     class Meta:
         model = PostVote
-        exclude = ('user',)
+        exclude = ('post', 'user')
 
     def validate(self, data):
         """

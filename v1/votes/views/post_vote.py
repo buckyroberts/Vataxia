@@ -20,3 +20,20 @@ class PostVoteView(APIView):
             serializer.save()
             return Response(PostVoteSerializer(serializer.instance).data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# post_votes/{post_vote_id}
+class PostVoteDetail(APIView):
+    
+    @staticmethod
+    def patch(request, post_vote_id):
+        """
+        Update post vote
+        """
+
+        post_vote = get_object_or_404(PostVote, pk=post_vote_id)
+        serializer = PostVoteSerializerUpdate(post_vote, data=request.data, context={'request': request}, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(PostVoteSerializer(serializer.instance).data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
