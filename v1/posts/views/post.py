@@ -35,6 +35,15 @@ class PostView(APIView):
 class PostDetail(APIView):
 
     @staticmethod
+    def get(request, post_id):
+        """
+        View individual post
+        """
+
+        post = get_object_or_404(Post, pk=post_id)
+        return Response(PostSerializer(post).data)
+
+    @staticmethod
     def patch(request, post_id):
         """
         Update post
