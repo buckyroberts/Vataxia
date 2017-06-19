@@ -4,7 +4,7 @@ from .views.logout import LogoutView
 from .views.profile import ProfileView
 from .views.reset_password import ResetPasswordView
 from .views.update_password import UpdatePasswordView
-from .views.user import UserView
+from .views.user import UserView, UserDetail
 
 
 urlpatterns = [
@@ -22,5 +22,6 @@ urlpatterns = [
 
     # Users
     url(r'^users$', UserView.as_view()),
+    url(r'^users/(?P<user_id>[\d]+)$', UserDetail.as_view()),
 
 ]
