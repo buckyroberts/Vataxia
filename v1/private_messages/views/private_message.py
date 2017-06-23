@@ -1,3 +1,4 @@
+from django.db.models import Q
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from v1.private_messages.models.private_message import PrivateMessage
@@ -13,5 +14,8 @@ class PrivateMessageView(APIView):
         List private messages
         """
 
-        private_messages = PrivateMessage.objects.all()
+        private_messages = PrivateMessage.objects.filter(
+            Q(receiver=request.user) |
+            Q(sender=request.user)
+        )
         return Response(PrivateMessageSerializer(private_messages, many=True).data)
