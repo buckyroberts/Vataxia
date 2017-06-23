@@ -1,4 +1,5 @@
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -32,3 +33,22 @@ class PrivateMessageView(APIView):
             serializer.save()
             return Response(PrivateMessageSerializer(serializer.instance).data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# private_messages/{private_message_id}
+class PrivateMessageDetail(APIView):
+
+    @staticmethod
+    def get(request, private_message_id):
+        """
+        View individual private message
+        """
+
+        private_message = PrivateMessage.objects.filter(
+            Q(receiver=request.user) |
+            Q(sender=request.user),
+            pk=private_message_id
+        ).first()
+        if not private_message:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+        return Response(PrivateMessageSerializer(private_message).data)
