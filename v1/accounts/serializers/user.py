@@ -50,3 +50,10 @@ class UserSerializerLogin(UserSerializer):
     class Meta:
         model = User
         fields = ('id', 'email', 'first_name', 'last_name', 'profile', 'token')
+
+
+class UserSerializerUpdate(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name')

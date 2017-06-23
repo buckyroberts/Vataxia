@@ -1,0 +1,11 @@
+[
+  {
+    "model": "user_roles.administrator",
+    "pk": 1,
+    "fields": {
+      "created_date": "2017-06-22T22:35:24.149Z",
+      "modified_date": "2017-06-22T22:35:24.149Z",
+      "user": 1
+    }
+  }
+]

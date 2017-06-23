@@ -1,0 +1,12 @@
+[
+  {
+    "model": "user_roles.moderator",
+    "pk": 1,
+    "fields": {
+      "created_date": "2017-06-22T22:35:37.636Z",
+      "modified_date": "2017-06-22T22:35:37.636Z",
+      "sponsor": 1,
+      "user": 2
+    }
+  }
+]
