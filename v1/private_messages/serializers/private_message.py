@@ -10,3 +10,11 @@ class PrivateMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = PrivateMessage
         fields = '__all__'
+
+
+class PrivateMessageSerializerCreate(serializers.ModelSerializer):
+    sender = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
+    class Meta:
+        model = PrivateMessage
+        fields = '__all__'
