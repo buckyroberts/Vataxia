@@ -7,9 +7,10 @@ class Post(CreatedModified):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     title = models.CharField(max_length=255)
     body = models.TextField()
+    image = models.ImageField(blank=True)
 
     class Meta:
         default_related_name = 'posts'
 
     def __str__(self):
-        return self.body
+        return self.title
