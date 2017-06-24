@@ -13,4 +13,4 @@ class Post(CreatedModified):
         default_related_name = 'posts'
 
     def __str__(self):
-        return self.body
+        return self.title
