@@ -13,4 +13,4 @@ class PrivateMessage(CreatedModified):
         default_related_name = 'private_messages'
 
     def __str__(self):
-        return self.body
+        return self.subject
