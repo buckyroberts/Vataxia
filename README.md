@@ -1,5 +1,12 @@
 ![](http://i.imgur.com/8j1esSj.png)
 
+## Overview
+
+Vataxia is an open source social network built with Django and Django REST framework. This project is the backend REST 
+API only. The frontend is written in React and can be found here:
+
+[Vataxia Frontend](https://github.com/buckyroberts/Vataxia-Frontend)
+
 ## Project Setup
 
 Install required packages:
