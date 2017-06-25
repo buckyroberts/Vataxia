@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from .views.login import LoginView
 from .views.logout import LogoutView
-from .views.profile import ProfileView
+from .views.profile import ProfileView, ProfileDetail
 from .views.reset_password import ResetPasswordView
 from .views.update_password import UpdatePasswordView
 from .views.user import UserView, UserDetail
@@ -19,6 +19,7 @@ urlpatterns = [
 
     # Profiles
     url(r'^profiles$', ProfileView.as_view()),
+    url(r'^profiles/(?P<profile_id>[\d]+)$', ProfileDetail.as_view()),
 
     # Users
     url(r'^users$', UserView.as_view()),
