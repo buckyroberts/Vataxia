@@ -44,7 +44,14 @@ On success, user information and API token will be returned:
   "email": "admin@email.com",
   "first_name": "Bucky",
   "last_name": "Roberts",
-  "token": "753da61b4c39bd195782710c82fe3c3b1e7f7428"
+  "profile": {
+    "id": 2,
+    "image": "/media/bucky_256.png",
+    "sponsor": null,
+    "user": 1
+  },
+  "role": "administrator",
+  "token": "cb810da7d03b85335ea18babf3536fbf2a31ccdf"
 }
 ```
 
