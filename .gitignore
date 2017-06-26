@@ -10,5 +10,5 @@ node_modules
 !**/migrations/__init__.py
 
 # Application
-# config/environment.py
-# config/settings/production.py
+config/environment.py
+config/settings/production.py
