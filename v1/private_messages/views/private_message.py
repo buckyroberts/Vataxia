@@ -1,6 +1,5 @@
 from django.db.models import Q
-from django.shortcuts import get_object_or_404
-from rest_framework import status
+from rest_framework import permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from v1.private_messages.models.private_message import PrivateMessage
@@ -9,6 +8,7 @@ from v1.private_messages.serializers.private_message import PrivateMessageSerial
 
 # private_messages
 class PrivateMessageView(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
 
     @staticmethod
     def get(request):
@@ -37,6 +37,7 @@ class PrivateMessageView(APIView):
 
 # private_messages/{private_message_id}
 class PrivateMessageDetail(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
 
     @staticmethod
     def get(request, private_message_id):
