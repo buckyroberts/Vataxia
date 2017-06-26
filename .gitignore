@@ -10,7 +10,5 @@ node_modules
 !**/migrations/__init__.py
 
 # Application
-static
-static/
 # config/environment.py
 # config/settings/production.py

@@ -18,17 +18,8 @@ DATABASES = {
     }
 }
 
-AWS_ACCESS_KEY_ID = 'xxx'
-AWS_SECRET_ACCESS_KEY = 'xxx'
-AWS_QUERYSTRING_AUTH = False
-
-DEFAULT_FILE_STORAGE = 'aws_storage_classes.MediaStorage'
-STATICFILES_STORAGE = 'aws_storage_classes.StaticStorage'
-
-AWS_STORAGE_BUCKET_NAME = 'xxx'
-AWS_S3_DOMAIN = 's3://s3-us-west-2.s3.amazonaws.com/' + AWS_STORAGE_BUCKET_NAME
-
-STATIC_URL = AWS_S3_DOMAIN + '/static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-MEDIA_URL = AWS_S3_DOMAIN + '/media/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
