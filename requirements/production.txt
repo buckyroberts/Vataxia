@@ -1,0 +1,9 @@
+-r base.txt
+
+awscli==1.11.105
+boto==2.43.0
+boto3==1.4.0
+botocore==1.4.93
+django-storages==1.5.1
+psycopg2==2.7.1
+requests_aws4auth==0.9

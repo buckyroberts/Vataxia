@@ -8,3 +8,9 @@ node_modules
 # Migrations
 **/migrations/*
 !**/migrations/__init__.py
+
+# Application
+static
+static/
+# config/environment.py
+# config/settings/production.py
