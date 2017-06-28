@@ -2,7 +2,7 @@ from rest_framework import serializers
 from v1.accounts.serializers.user import UserSerializer
 from v1.user_roles.models.moderator import Moderator
 from v1.utils import constants
-from v1.utils.permissions import is_moderator
+from v1.utils.permissions import is_administrator, is_moderator
 
 
 class ModeratorSerializer(serializers.ModelSerializer):
@@ -23,11 +23,11 @@ class ModeratorSerializerCreate(serializers.ModelSerializer):
 
     def validate(self, data):
         """
-        Moderator permissions needed
+        Administrator permissions needed
         """
 
-        if not is_moderator(self.context['request'].user):
-            raise serializers.ValidationError(constants.PERMISSION_MODERATOR_REQUIRED)
+        if not is_administrator(self.context['request'].user):
+            raise serializers.ValidationError(constants.PERMISSION_ADMINISTRATOR_REQUIRED)
         return data
 
     def validate_user(self, user):

@@ -2,8 +2,9 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from v1.filters.posts.post import post_filter
 from v1.posts.models.post import Post
-from v1.posts.serializers.post import PostSerializer, PostSerializerCreate, PostSerializerUpdate
+from v1.posts.serializers.post import PostSerializer, PostSerializerCreate, PostSerializerFull, PostSerializerUpdate
 
 
 # posts
@@ -16,6 +17,11 @@ class PostView(APIView):
         """
 
         posts = Post.objects.all()
+
+        posts = post_filter(request, posts)
+        if type(posts) == Response:
+            return posts
+
         return Response(PostSerializer(posts, many=True).data)
 
     @staticmethod
@@ -41,7 +47,7 @@ class PostDetail(APIView):
         """
 
         post = get_object_or_404(Post, pk=post_id)
-        return Response(PostSerializer(post).data)
+        return Response(PostSerializerFull(post).data)
 
     @staticmethod
     def patch(request, post_id):
@@ -53,7 +59,7 @@ class PostDetail(APIView):
         serializer = PostSerializerUpdate(post, data=request.data, context={'request': request}, partial=True)
         if serializer.is_valid():
             serializer.save()
-            return Response(PostSerializer(serializer.instance).data)
+            return Response(PostSerializerFull(serializer.instance).data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @staticmethod

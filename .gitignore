@@ -11,3 +11,4 @@ __pycache__
 # Application
 config/environment.py
 config/settings/production.py
+media/*
