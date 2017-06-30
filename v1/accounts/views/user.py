@@ -31,7 +31,7 @@ class UserView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             Profile(sponsor=request.user, user=user).save()
-            return Response(UserSerializer(serializer.instance).data, status=status.HTTP_201_CREATED)
+            return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
