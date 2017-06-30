@@ -20,9 +20,7 @@ class AcceptInvitationSerializer(serializers.Serializer):
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name']
         )
-        invitation = Invitation.objects.filter(code=validated_data['code']).first()
-        invitation.receiver = user
-        invitation.save()
+        Invitation.objects.filter(code=validated_data['code']).update(receiver=user)
         Profile.objects.create(user=user)
         return user
 
@@ -36,7 +34,7 @@ class AcceptInvitationSerializer(serializers.Serializer):
         """
 
         if not Invitation.objects.filter(code=value, receiver__isnull=True):
-            raise serializers.ValidationError('Invalid code')
+            raise serializers.ValidationError('Invalid invitation code')
         return value
 
     @staticmethod
@@ -48,4 +46,3 @@ class AcceptInvitationSerializer(serializers.Serializer):
         if User.objects.filter(email=value):
             raise serializers.ValidationError('Email already exists')
         return value
-
