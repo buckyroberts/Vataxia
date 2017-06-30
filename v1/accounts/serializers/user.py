@@ -36,17 +36,11 @@ class UserSerializer(serializers.ModelSerializer):
             return constants.USER_ROLE_MODERATOR
 
 
-class UserSerializerCreate(UserSerializer):
+class UserSerializerCreate(serializers.ModelSerializer):
 
-    @staticmethod
-    def validate_email(value):
-        """
-        Check the email is unique
-        """
-
-        if User.objects.filter(email=value):
-            raise serializers.ValidationError('Email already exists')
-        return value
+    class Meta:
+        model = User
+        fields = ('email', 'first_name', 'last_name')
 
 
 class UserSerializerLogin(UserSerializer):

@@ -17,11 +17,9 @@ class PostView(APIView):
         """
 
         posts = Post.objects.all()
-
         posts = post_filter(request, posts)
         if type(posts) == Response:
             return posts
-
         return Response(PostSerializer(posts, many=True).data)
 
     @staticmethod

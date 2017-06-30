@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from .views.accept_invitation import AcceptInvitationView
 from .views.login import LoginView
 from .views.logout import LogoutView
 from .views.profile import ProfileView, ProfileDetail
@@ -8,6 +9,9 @@ from .views.user import UserView, UserDetail
 
 
 urlpatterns = [
+
+    # Accept invitation
+    url(r'^accept_invitation$', AcceptInvitationView.as_view()),
 
     # Login / logout
     url(r'^login$', LoginView.as_view()),
