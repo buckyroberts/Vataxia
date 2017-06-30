@@ -8,6 +8,7 @@ INSTALLED_APPS = [
 
     # API (v1)
     'v1.accounts.apps.AccountsConfig',
+    'v1.credits.apps.CreditsConfig',
     'v1.filters.apps.FiltersConfig',
     'v1.posts.apps.PostsConfig',
     'v1.private_messages.apps.PrivateMessagesConfig',

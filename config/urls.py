@@ -9,6 +9,7 @@ urlpatterns = [
 
     # API (v1)
     url(r'^', include('v1.accounts.urls')),
+    url(r'^', include('v1.credits.urls')),
     url(r'^', include('v1.posts.urls')),
     url(r'^', include('v1.private_messages.urls')),
     url(r'^', include('v1.replies.urls')),
