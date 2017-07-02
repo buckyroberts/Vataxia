@@ -1,3 +1,4 @@
+from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from v1.accounts.models.profile import Profile
@@ -40,7 +41,25 @@ class UserSerializerCreate(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('email', 'first_name', 'last_name')
+        fields = ('email', 'first_name', 'last_name', 'password')
+
+    def validate(self, data):
+        """
+        Administrator permissions needed
+        """
+
+        if not is_administrator(self.context['request'].user):
+            raise serializers.ValidationError(constants.PERMISSION_ADMINISTRATOR_REQUIRED)
+        return data
+
+    @staticmethod
+    def validate_password(password):
+        """
+        Validate password
+        """
+
+        validate_password(password)
+        return password
 
 
 class UserSerializerLogin(UserSerializer):

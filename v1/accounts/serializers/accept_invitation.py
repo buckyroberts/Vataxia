@@ -1,3 +1,4 @@
+from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
 from v1.accounts.models.profile import Profile
 from v1.accounts.models.user import User
@@ -9,10 +10,11 @@ class AcceptInvitationSerializer(serializers.Serializer):
     email = serializers.EmailField()
     first_name = serializers.CharField(max_length=255)
     last_name = serializers.CharField(max_length=255)
+    password = serializers.CharField(max_length=128)
 
     def create(self, validated_data):
         """
-        Create user, update invitation, create profile
+        Create user, set password, update invitation, create profile
         """
 
         user = User.objects.create(
@@ -20,6 +22,7 @@ class AcceptInvitationSerializer(serializers.Serializer):
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name']
         )
+        user.set_password(validated_data['password'])
         Invitation.objects.filter(code=validated_data['code']).update(receiver=user)
         Profile.objects.create(user=user)
         return user
@@ -46,3 +49,12 @@ class AcceptInvitationSerializer(serializers.Serializer):
         if User.objects.filter(email=value):
             raise serializers.ValidationError('Email already exists')
         return value
+
+    @staticmethod
+    def validate_password(password):
+        """
+        Validate password
+        """
+
+        validate_password(password)
+        return password
