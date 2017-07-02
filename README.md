@@ -54,7 +54,6 @@ On success, user information and API token will be returned:
   "profile": {
     "id": 2,
     "image": "/media/bucky_256.png",
-    "sponsor": null,
     "user": 1
   },
   "role": "administrator",
