@@ -74,8 +74,8 @@ To view API documentation, run development server and visit [http://127.0.0.1:80
 ## Links
 
 - [API Docs](http://vataxia.net/)
-- [Backend (GitHub)](https://github.com/buckyroberts/Vataxia)
 - [Facebook](https://www.facebook.com/TheNewBoston-464114846956315/)
+- [Frontend (GitHub)](https://github.com/buckyroberts/Vataxia-Frontend)
 - [Reddit](https://www.reddit.com/r/Vataxia/)
 - [Slack](https://vataxia.slack.com/)
 - [Support](https://www.patreon.com/thenewboston)
