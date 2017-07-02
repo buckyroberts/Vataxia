@@ -72,3 +72,12 @@ Authorization: Token 753da61b4c39bd195782710c82fe3c3b1e7f7428
 
 To view API documentation, run development server and visit [http://127.0.0.1:8000/docs/](http://127.0.0.1:8000/docs/)
 
+## Links
+
+- [API Docs](http://vataxia.net/)
+- [Backend (GitHub)](https://github.com/buckyroberts/Vataxia)
+- [Facebook](https://www.facebook.com/TheNewBoston-464114846956315/)
+- [Reddit](https://www.reddit.com/r/Vataxia/)
+- [Slack](https://vataxia.slack.com/)
+- [Support](https://www.patreon.com/thenewboston)
+- [Twitter](https://twitter.com/bucky_roberts)
