@@ -3,8 +3,8 @@ import os
 
 def main():
     for root, dirs, files in os.walk('v1'):
-        if root[-10:] == 'migrations':
-            for f in [file for file in files if file[:2] == '00']:
+        if root.endswith('migrations'):
+            for f in [fn for fn in files if fn.startswith('00')]:
                 os.remove(os.path.normpath(os.path.join(root, f)))
             create_init_file(root)
 
